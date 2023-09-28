@@ -1,0 +1,115 @@
+﻿body {
+}
+
+#footer {
+    background-color: #4d7cf6;
+    color: white;
+}
+
+.navbar-dark .navbar-brand {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.bg-white {
+    border: 1px solid #000000;
+    border-right: none;
+    background-color: #4d7cf6 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.navbar-collapse .navbar-nav i {
+    color: yellow;
+}
+
+.navbar-dark .navbar-brand:focus, .navbar-dark .navbar-brand:hover {
+    color: yellow;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: yellow;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.list-group-item.active {
+    background-color: #ffd715;
+    color: #333;
+    border-color: #ffd715;
+    font-weight: bold;
+}
+/*data_item*/
+.data_item {
+    width: 100%;
+    padding: 5px;
+}
+
+    .data_item .item {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+        .data_item .item .i {
+            border: 1px solid #808080;
+            height: 215px;
+            padding-top: 20px;
+        }
+
+            .data_item .item .i img {
+                width: 160px;
+                height: 175px;
+            }
+
+        .data_item .item .t {
+            border: 1px solid #808080;
+            height: 106px;
+            padding-top: 10px;
+        }
+
+.footer_top li {
+    list-style: none;
+}
+
+.footer_top h3 {
+    color: yellow;
+}
+
+.footer_top li p {
+    margin: 5px 0 5px;
+    color: white;
+}
+
+.footer_top a {
+    margin: 5px 20px 5px -40px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+}
+
+    .footer_top a:hover {
+        color: #eff93a;
+    }
+
+.footer_top i {
+    color: yellow;
+}
+
+.footer_bottom p {
+    margin: 0 auto;
+    text-align:center;
+}
+
+.footer_bottom p a {
+    color: yellow;
+    text-decoration: none;
+}
