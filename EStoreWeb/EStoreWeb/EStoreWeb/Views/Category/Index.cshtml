@@ -1,0 +1,36 @@
+﻿@model List<Category>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>LIST CATELORY</h2>
+    </div>
+    <div class="col-md-6">
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>DisPlay Order</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.CategoryName</td>
+                <td>@x.DisplayOrder</td>
+                <td>
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-id="@x.Id">Edit</a>
+                    <a asp-action="Delete" onclick="alert" asp-route-id="@x.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

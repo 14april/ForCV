@@ -1,0 +1,42 @@
+﻿@model Product
+<div class="row detail">
+    <div class="col-md-5">
+        <img src="/@Model.ImageUrl" style="width:300px" />
+    </div>
+    <div class="col-md-7">
+        <label class="alert alert-success">THÔNG TIN CHI TIẾT SẢN PHẨM</label>
+        <p>
+            Ten san pham:@Model.Name
+        </p>
+        <p>
+            Gia san pham:<span class="price"> @Model.Price</span> USD
+        </p>
+        <a asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-danger">
+            <i class="bi bi-cart"></i> Add To Cart
+        </a>
+    </div>
+    <label class="alert alert-dark" style="margin:10px 0 10px 0">SẢN PHẨM CÙNG LOẠI</label>
+        @foreach (var x in ViewBag.list)
+        {
+            <div class="col-md-3 product-item">
+                <div class="card">
+                    <div class="card-header">
+                        <a asp-action="Detail" asp-route-id="@x.Id">@x.Name</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <a asp-action="Detail" asp-route-id="@x.Id"><img src="/@x.ImageUrl" /></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        }
+    <label class="alert alert-primary" style="margin:10px 0 10px 0">THÔNG TIN MÔ TẢ</label>
+    <div class="col-md-12">
+        <p>
+            @Html.Raw(Model.Description)
+        </p>
+    </div>
+
+</div>

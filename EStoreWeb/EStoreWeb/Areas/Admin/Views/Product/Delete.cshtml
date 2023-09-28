@@ -1,0 +1,52 @@
+﻿@model Product
+
+<form asp-action="Delete" method="post" enctype="multipart/form-data">
+    <div class="row mt-5">
+        <h2>Delete Product</h2>
+    </div>
+    <input asp-for="ImageUrl" type="hidden" />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>Name</label>
+                <input asp-for="Name" disabled class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Display Order</label>
+                <textarea asp-for="Description" disabled class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input asp-for="Price" disabled class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <select asp-for="CategoryId" disabled asp-items="ViewBag.category" class="form-control">
+                    <option disabled selected>Chọn Category</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input name="file" type="file" disabled class="form-control" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            @if (Model.ImageUrl != null)
+            {
+                <img src="/@Model.ImageUrl" style="width:200px" />
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-action="Index" class="btn btn-warning">Back to List</a>
+</form>
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

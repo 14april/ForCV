@@ -1,0 +1,62 @@
+﻿@model List<Product>
+<partial name="_Notification" />
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <h2>LIST CATEGORY</h2>
+    </div>
+    <div class="col-md-6 text-right">
+        <a asp-action="Create" class="btn btn-primary">Create new</a>
+    </div>
+</div>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+
+            <td>@x.Name</td>
+            <td>@x.Price</td>
+            <td>@x.Category.Name</td>
+            <td>
+                @if (x.ImageUrl != null)
+                {
+                    <img src="@x.ImageUrl" style="width:100px" />
+                }
+            </td>
+            <td style="color:white">
+                <a asp-action="Edit" asp-route-id="@x.Id" class="btn btn-success">Edit</a>
+                <a asp-action="Delete" asp-route-id="@x.Id" class="btn btn-warning">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <ul class="pagination justify-content-center">
+        <li class="page-item @(ViewBag.PageIndex==1?"disabled":"")">
+            <a class="page-link" asp-action="Index" asp-route-page="1">&laquo;</a>
+        </li>
+        @for (int i = 1; i <= ViewBag.PageSum; i++)
+        {
+            <li class="page-item @(ViewBag.PageIndex==i?"active":"")">
+
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+            </li>
+        }
+        <li class="page-item @(ViewBag.PageIndex==ViewBag.PageSum?"disabled":"")">
+            <a class="page-link" asp-action="Index" asp-route-page="@ViewBag.PageSum">&raquo;</a>
+        </li>
+    </ul>
+</div>
